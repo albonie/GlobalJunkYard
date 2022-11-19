@@ -1,0 +1,17 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "api for global junkyard app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.4",
+    "mongoose": "^6.7.1"
+  },
+  "author": "GPSW",
+  "license": "ISC"
+}
