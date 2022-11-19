@@ -65,6 +65,13 @@ app.post("/api/products/listwithdate/:type", jsonParser, function (req, res) {
       res.json(data);
     });
 });
+app.get("/api/product/:id",(req,res)=>{
+  MongoHandler.findProductById(req.params.id,(err, data) => {
+    if (err) return next(err);
+    res.json(data);
+  })
+
+})
 
 
 const listener = app.listen(process.env.PORT || 3000, () => {
