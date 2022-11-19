@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 require("dotenv").config();
 try {
   mongoose = require("mongoose");
@@ -11,26 +11,62 @@ try {
 const jsonParser = bodyParser.json();
 
 mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 const MongoHandler = require("./handlers/mongoHandler").MongoHandler;
 
 app.post("/api/types", jsonParser, function (req, res) {
-    MongoHandler.addTypes(req.body.name, (err, data) => {
+  MongoHandler.addTypes(req.body.name, (err, data) => {
+    if (err) return next(err);
+    res.json(data);
+  });
+});
+
+app.get("/api/types", function (req, res) {
+  MongoHandler.findAllTypes((err, data) => {
+    if (err) return next(err);
+    res.json(data);
+  });
+});
+
+app.post("/api/products/add", jsonParser, function (req, res) {
+    MongoHandler.addProducts(req.body, (err, data) => {
       if (err) return next(err);
       res.json(data);
     });
-  });
+});
 
-app.get("/api/types", function (req, res) {
-    MongoHandler.findAllTypes((err, data) => {
-        if (err) return next(err);
-        res.json(data);
+app.post("/api/products/list", jsonParser, function (req, res) {
+    MongoHandler.findProducts(req.body, (err, data) => {
+      if (err) return next(err);
+      res.json(data);
     });
 });
 
+app.post("/api/products/list/:type", jsonParser, function (req, res) {
+    MongoHandler.findProductsWithType(req.params.type, req.body, (err, data) => {
+      if (err) return next(err);
+      res.json(data);
+    });
+});
+
+app.post("/api/products/listwithdate", jsonParser, function (req, res) {
+    MongoHandler.findProductsDesiredDate(req.body, (err, data) => {
+      if (err) return next(err);
+      res.json(data);
+    });
+});
+
+app.post("/api/products/listwithdate/:type", jsonParser, function (req, res) {
+    MongoHandler.findProductsDesiredDateWithType(req.params.type, req.body, (err, data) => {
+      if (err) return next(err);
+      res.json(data);
+    });
+});
+
+
 const listener = app.listen(process.env.PORT || 3000, () => {
-    console.log("Your app is listening on port " + listener.address().port);
+  console.log("Your app is listening on port " + listener.address().port);
 });
