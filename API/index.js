@@ -8,6 +8,13 @@ try {
   console.log(e);
 }
 
+imageSchema = require("./schemas/imageSchema").imageSchema;
+const Image = mongoose.model("Image", imageSchema);
+
+const multer  = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
 const jsonParser = bodyParser.json();
 
 mongoose.connect(process.env.MONGO_URI, {
@@ -64,6 +71,32 @@ app.post("/api/products/listwithdate/:type", jsonParser, function (req, res) {
       if (err) return next(err);
       res.json(data);
     });
+});
+
+
+app.post("/api/image/add", upload.single("file"), async (req, res) => {
+  try {
+    if (!req.file) {
+      res.json({
+        success: false,
+        message: "You must provide at least 1 file"
+      });
+    } else {
+      let imageUploadObject = {
+        file: {
+          data: req.file.buffer,
+          contentType: req.file.mimetype
+        },
+        productId: req.body.productId
+      };
+      const image = new Image(imageUploadObject);
+      const uploadProcess = await image.save();
+      res.status(200).send(uploadProcess);
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
 });
 
 
