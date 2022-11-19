@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/API.iml" filepath="$PROJECT_DIR$/API.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GlobalJunkYard.iml" filepath="$PROJECT_DIR$/.idea/modules/GlobalJunkYard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GlobalJunkYardApp.iml" filepath="$PROJECT_DIR$/.idea/modules/GlobalJunkYardApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GlobalJunkYardApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GlobalJunkYardApp.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GlobalJunkYardApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GlobalJunkYardApp.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GlobalJunkYardApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GlobalJunkYardApp.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/GlobalJunkYardApp.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/GlobalJunkYardApp.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.GlobalJunkYardApp.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.GlobalJunkYardApp.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.GlobalJunkYardApp.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.GlobalJunkYardApp.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.GlobalJunkYardApp.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.GlobalJunkYardApp.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>
