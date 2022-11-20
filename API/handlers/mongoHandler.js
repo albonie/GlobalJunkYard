@@ -103,6 +103,13 @@ class MongoHandler {
       done(null, data);
     });
   }
+
+  static countProducts(done){
+    Products.countDocuments({}, function (err, data) {
+      if (err) return console.error(err);
+      done(null, data);
+    });
+  }
 }
 
 module.exports = {
