@@ -106,6 +106,13 @@ app.post("/api/image/add", upload.single("file"), async (req, res) => {
   }
 });
 
+app.get("/api/image/:id", (req, res) => {
+  MongoHandler.findImages(req.params.id, (err, data) => {
+    if (err) return next(err);
+    res.json(data);
+  })
+})
+
 
 const listener = app.listen(process.env.PORT || 3000, () => {
   console.log("Your app is listening on port " + listener.address().port);

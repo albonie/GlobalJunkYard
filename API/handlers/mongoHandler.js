@@ -4,6 +4,9 @@ const Types = mongoose.model("Types", typeSchema);
 productsSchema = require("../schemas/productsSchema").productsSchema;
 const Products = mongoose.model("Products", productsSchema);
 
+imageSchema = require("../schemas/imageSchema").imageSchema;
+const Image = mongoose.model("Image", imageSchema);
+
 class MongoHandler {
   static addTypes(name, done) {
     let newTypes = new Types({
@@ -92,6 +95,13 @@ class MongoHandler {
         if (err) return console.error(err);
         done(null, data);
       });
+  }
+
+  static findImages(id, done) {
+    Image.find({productId: id}, function (err, data) {
+      if (err) return console.error(err);
+      done(null, data);
+    });
   }
 }
 
