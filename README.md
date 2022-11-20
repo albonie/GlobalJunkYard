@@ -24,3 +24,5 @@ npm run dev
 ## APPLICATION
 
 ### Run It
+
+execute build.gradle task
